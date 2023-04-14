@@ -9,8 +9,8 @@ type Params = {
   };
 };
 
-export default async function Home({ params }: Params) {
-  const totalItems = parseInt(params.pageNumber) * 20;
+export default async function Home({ params: { pageNumber } }: Params) {
+  const totalItems = parseInt(pageNumber) * 20;
   //Using array slice method because api does not support offset variable to limit and skip specific items
   let start = 0;
   if (totalItems > 20) {
@@ -92,18 +92,18 @@ export default async function Home({ params }: Params) {
         })}
       </ul>
       <div className=" flex items-center justify-center mt-6 gap-6">
-        {parseInt(params.pageNumber) > 1 && (
+        {parseInt(pageNumber) > 1 && (
           <Link
             className="bg-white px-4 py-2 font-medium text-gray-900 ring-2 ring-gray-200 rounded-full hover:ring-gray-400 duration-300 ease-in-out "
-            href={`/page/${parseInt(params.pageNumber) - 1}`}
+            href={`/page/${parseInt(pageNumber) - 1}`}
           >
             Prev
           </Link>
         )}
-        {parseInt(params.pageNumber) * 20 <= maxItem && (
+        {parseInt(pageNumber) * 20 <= maxItem && (
           <Link
             className="bg-white px-4 py-2 font-medium text-gray-900 ring-2 ring-gray-200 rounded-full hover:ring-gray-400 duration-300 ease-in-out "
-            href={`/page/${parseInt(params.pageNumber) + 1}`}
+            href={`/page/${parseInt(pageNumber) + 1}`}
           >
             Next
           </Link>

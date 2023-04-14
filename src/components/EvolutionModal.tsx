@@ -104,7 +104,7 @@ function EvolutionModal({ pokemon }: { pokemon: Pokemon }) {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
-                  <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white p-4 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Panel className="w-full max-h-[80dvh] overflow-scroll max-w-lg transform  rounded-md bg-white p-4 text-left align-middle shadow-xl transition-all">
                     <Dialog.Title
                       as="h3"
                       className="text-lg font-bold leading-6 text-gray-900 mb-4"
@@ -119,7 +119,7 @@ function EvolutionModal({ pokemon }: { pokemon: Pokemon }) {
                             return (
                               <li
                                 key={e.id}
-                                className=" grid md:grid-cols-[auto_1fr] gap-6 ring-1 ring-gray-200 p-4"
+                                className=" grid  rounded-md md:grid-cols-[auto_1fr] gap-6 ring-1 ring-gray-200 p-4"
                               >
                                 <Image
                                   src={e.image}
